@@ -4,6 +4,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9EW10BJGW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R9EW10BJGW");</script>
 <meta charset="UTF-8">
+<link rel="manifest" href="/sipcalc/manifest.json">
+<meta name="theme-color" content="#1d4ed8">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIP Calculator India — SIP, Step-Up, Goal Planner, SWP & LTCG Tax 2026</title>
 <meta name="description" content="Free SIP calculator India. Calculate SIP returns, Step-Up SIP, lump sum, goal-based SIP, SWP and LTCG tax on mutual fund gains. Instant, no signup.">
@@ -534,5 +537,6 @@ function calcLTCG() {
 
 calcSIP(); calcStepUp(); calcLS(); calcGoal(); calcSWP(); calcLTCG();
 </script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/sipcalc/sw.js");</script>
 </body>
 </html>
