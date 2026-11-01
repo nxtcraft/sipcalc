@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP Calculator India — Free SIP, Lump Sum & Goal Planner 2026</title>
+<meta name="description" content="Free SIP calculator India. Calculate SIP returns, lump sum investment, goal-based SIP, and SWP. See how your mutual fund grows. Instant, no signup.">
+<meta name="keywords" content="sip calculator, sip calculator india, mutual fund sip calculator, lump sum calculator, goal based sip calculator, swp calculator, sip return calculator, monthly sip calculator, sip maturity calculator">
+<link rel="canonical" href="https://nxtcraft.github.io/sipcalc/">
+<meta property="og:title" content="SIP Calculator India — Free SIP & Mutual Fund Calculator">
+<meta property="og:description" content="Calculate SIP maturity, lump sum returns, goal-based SIP amount and SWP withdrawals. Free, instant.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nxtcraft.github.io/sipcalc/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SIPCalc",
+  "url": "https://nxtcraft.github.io/sipcalc/",
+  "description": "Free SIP calculator India — SIP returns, lump sum, goal planner, SWP calculator.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SIP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SIP (Systematic Investment Plan) is a method of investing a fixed amount in a mutual fund every month. It benefits from rupee cost averaging — you buy more units when markets are low and fewer when high, reducing the average cost over time." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is SIP return calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SIP maturity = P × [(1+r)^n − 1] / r × (1+r), where P = monthly investment, r = monthly rate (annual rate ÷ 12 ÷ 100), n = number of months. The expected annual return for equity mutual funds is typically 10–15% for long-term (10+ year) investments." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I invest in SIP to get ₹1 crore?",
+      "acceptedAnswer": { "@type": "Answer", "text": "To accumulate ₹1 crore in 20 years at 12% annual return, you need a monthly SIP of approximately ₹10,000. Use our Goal Planner tab to calculate your exact required SIP for any target amount." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good SIP return rate to assume?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For long-term planning (10+ years): equity mutual funds 10–12%, large cap 10–11%, mid/small cap 12–15%. For conservative planning use 8–10%. Debt funds typically return 6–8%. Past returns do not guarantee future performance." }
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#eff6ff;color:#1e3a5f;min-height:100vh;}
+.header{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:18px 20px 0;text-align:center;}
+.header h1{font-size:22px;font-weight:800;margin-bottom:4px;}
+.header p{font-size:13px;opacity:.85;margin-bottom:16px;}
+.tabs{display:flex;gap:0;overflow-x:auto;justify-content:center;}
+.tab{padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:rgba(255,255,255,.15);color:#fff;border-radius:8px 8px 0 0;white-space:nowrap;transition:background .15s;}
+.tab:hover{background:rgba(255,255,255,.25);}
+.tab.active{background:#fff;color:#1d4ed8;}
+.container{max-width:680px;margin:0 auto;padding:24px 16px;}
+.panel{display:none;}
+.panel.active{display:block;}
+.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(29,78,216,.1);margin-bottom:20px;}
+.card h2{font-size:17px;font-weight:800;color:#1e3a5f;margin-bottom:18px;}
+label{display:block;font-size:13px;font-weight:600;color:#1d4ed8;margin-bottom:6px;}
+input[type=number]{width:100%;padding:12px 14px;border:2px solid #bfdbfe;border-radius:8px;font-size:16px;color:#1e3a5f;background:#fff;outline:none;transition:border .15s;}
+input[type=number]:focus{border-color:#2563eb;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.row1{margin-bottom:14px;}
+.slider-wrap{margin-bottom:16px;}
+.slider-wrap label{display:flex;justify-content:space-between;align-items:center;}
+.slider-val{font-size:14px;font-weight:800;color:#1d4ed8;background:#eff6ff;padding:2px 10px;border-radius:6px;}
+input[type=range]{width:100%;height:4px;accent-color:#2563eb;margin-top:8px;cursor:pointer;}
+.result-box{background:#eff6ff;border:2px solid #bfdbfe;border-radius:10px;padding:20px;margin-top:18px;}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #dbeafe;}
+.result-row:last-child{border-bottom:none;font-weight:800;font-size:17px;color:#1d4ed8;}
+.result-label{font-size:14px;color:#3b5998;}
+.result-val{font-size:15px;font-weight:700;color:#1e3a5f;}
+.bar-wrap{margin:16px 0 8px;}
+.bar-track{background:#dbeafe;border-radius:8px;height:12px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#2563eb,#60a5fa);transition:width .4s;}
+.bar-labels{display:flex;justify-content:space-between;font-size:11px;color:#3b5998;margin-top:4px;}
+.affiliate-box{background:linear-gradient(135deg,#1e3a5f,#1d4ed8);border-radius:12px;padding:20px;margin-bottom:20px;color:#fff;}
+.affiliate-box h3{font-size:15px;font-weight:800;margin-bottom:4px;}
+.affiliate-box p{font-size:13px;opacity:.85;margin-bottom:14px;}
+.affiliate-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.aff-btn{display:block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:10px;text-align:center;text-decoration:none;color:#fff;font-size:12px;font-weight:700;transition:background .15s;}
+.aff-btn:hover{background:rgba(255,255,255,.25);}
+.aff-btn .aff-icon{font-size:20px;display:block;margin-bottom:4px;}
+.seo{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(29,78,216,.1);}
+.seo h2{font-size:18px;font-weight:800;color:#1e3a5f;margin-bottom:12px;}
+.seo h3{font-size:15px;font-weight:700;color:#1d4ed8;margin:16px 0 8px;}
+.seo p,.seo li{font-size:14px;line-height:1.6;color:#374151;margin-bottom:6px;}
+.seo ul{padding-left:20px;}
+details{margin-bottom:8px;border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;}
+details summary{padding:12px 16px;font-size:14px;font-weight:600;cursor:pointer;color:#1e3a5f;background:#eff6ff;}
+details[open] summary{background:#dbeafe;}
+details p{padding:12px 16px;font-size:14px;color:#374151;line-height:1.6;}
+.highlight{background:#dbeafe;border-left:3px solid #2563eb;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px;}
+footer{background:#1e3a5f;color:#93c5fd;text-align:center;padding:18px;font-size:13px;}
+footer a{color:#60a5fa;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+.note{font-size:11px;color:#6b7280;margin-top:8px;}
+@media(max-width:480px){.row2{grid-template-columns:1fr;}.affiliate-links{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SIP<span style="font-weight:300">Calc</span></h1>
+  <p>Free SIP Calculator India — SIP Returns · Lump Sum · Goal Planner · SWP</p>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('sip',this)">📈 SIP</button>
+    <button class="tab" onclick="showTab('lumpsum',this)">💰 Lump Sum</button>
+    <button class="tab" onclick="showTab('goal',this)">🎯 Goal Planner</button>
+    <button class="tab" onclick="showTab('swp',this)">💸 SWP</button>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TAB 1: SIP Calculator -->
+<div id="tab-sip" class="panel active">
+  <div class="card">
+    <h2>SIP Calculator</h2>
+    <div class="slider-wrap">
+      <label>Monthly Investment <span class="slider-val" id="sip-amt-val">₹5,000</span></label>
+      <input type="range" id="sip-amt" min="500" max="100000" step="500" value="5000" oninput="updSlider('sip-amt','sip-amt-val','₹',true);calcSIP()">
+    </div>
+    <div class="slider-wrap">
+      <label>Expected Annual Return <span class="slider-val" id="sip-rate-val">12%</span></label>
+      <input type="range" id="sip-rate" min="1" max="30" step="0.5" value="12" oninput="updSlider('sip-rate','sip-rate-val','',false,'%');calcSIP()">
+    </div>
+    <div class="slider-wrap">
+      <label>Investment Duration <span class="slider-val" id="sip-yr-val">10 yrs</span></label>
+      <input type="range" id="sip-yr" min="1" max="40" step="1" value="10" oninput="updSlider('sip-yr','sip-yr-val','',false,' yrs');calcSIP()">
+    </div>
+    <div id="sip-result" class="result-box">
+      <div class="result-row">
+        <span class="result-label">Total Invested</span>
+        <span class="result-val" id="r-sip-invested">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Wealth Gained</span>
+        <span class="result-val" id="r-sip-gain" style="color:#16a34a;">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Maturity Value</span>
+        <span class="result-val" id="r-sip-total">—</span>
+      </div>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar-track"><div class="bar-fill" id="sip-bar" style="width:50%"></div></div>
+      <div class="bar-labels"><span id="sip-bar-inv">Invested</span><span id="sip-bar-gain">Returns</span></div>
+    </div>
+  </div>
+  <div class="affiliate-box">
+    <h3>Start your SIP today — recommended platforms</h3>
+    <p>Zero commission, direct plans, paperless KYC. Start with as little as ₹100/month.</p>
+    <div class="affiliate-links">
+      <a class="aff-btn" href="https://groww.in" target="_blank" rel="noopener sponsored">
+        <span class="aff-icon">🌱</span>Groww
+      </a>
+      <a class="aff-btn" href="https://coin.zerodha.com" target="_blank" rel="noopener sponsored">
+        <span class="aff-icon">🪙</span>Zerodha Coin
+      </a>
+      <a class="aff-btn" href="https://www.etmoney.com" target="_blank" rel="noopener sponsored">
+        <span class="aff-icon">💹</span>ET Money
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: Lump Sum -->
+<div id="tab-lumpsum" class="panel">
+  <div class="card">
+    <h2>Lump Sum Calculator</h2>
+    <div class="slider-wrap">
+      <label>Investment Amount <span class="slider-val" id="ls-amt-val">₹1,00,000</span></label>
+      <input type="range" id="ls-amt" min="1000" max="5000000" step="1000" value="100000" oninput="updSlider('ls-amt','ls-amt-val','₹',true);calcLS()">
+    </div>
+    <div class="slider-wrap">
+      <label>Expected Annual Return <span class="slider-val" id="ls-rate-val">12%</span></label>
+      <input type="range" id="ls-rate" min="1" max="30" step="0.5" value="12" oninput="updSlider('ls-rate','ls-rate-val','',false,'%');calcLS()">
+    </div>
+    <div class="slider-wrap">
+      <label>Investment Duration <span class="slider-val" id="ls-yr-val">10 yrs</span></label>
+      <input type="range" id="ls-yr" min="1" max="40" step="1" value="10" oninput="updSlider('ls-yr','ls-yr-val','',false,' yrs');calcLS()">
+    </div>
+    <div id="ls-result" class="result-box">
+      <div class="result-row">
+        <span class="result-label">Amount Invested</span>
+        <span class="result-val" id="r-ls-invested">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Wealth Gained</span>
+        <span class="result-val" id="r-ls-gain" style="color:#16a34a;">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Maturity Value</span>
+        <span class="result-val" id="r-ls-total">—</span>
+      </div>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar-track"><div class="bar-fill" id="ls-bar" style="width:50%"></div></div>
+      <div class="bar-labels"><span id="ls-bar-inv">Invested</span><span id="ls-bar-gain">Returns</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: Goal Planner -->
+<div id="tab-goal" class="panel">
+  <div class="card">
+    <h2>Goal-Based SIP Planner</h2>
+    <p style="font-size:13px;color:#3b5998;margin-bottom:18px;">Enter your target corpus — find how much to invest monthly.</p>
+    <div class="slider-wrap">
+      <label>Target Amount <span class="slider-val" id="gl-target-val">₹50,00,000</span></label>
+      <input type="range" id="gl-target" min="100000" max="100000000" step="100000" value="5000000" oninput="updSlider('gl-target','gl-target-val','₹',true);calcGoal()">
+    </div>
+    <div class="slider-wrap">
+      <label>Expected Annual Return <span class="slider-val" id="gl-rate-val">12%</span></label>
+      <input type="range" id="gl-rate" min="1" max="30" step="0.5" value="12" oninput="updSlider('gl-rate','gl-rate-val','',false,'%');calcGoal()">
+    </div>
+    <div class="slider-wrap">
+      <label>Time to Goal <span class="slider-val" id="gl-yr-val">15 yrs</span></label>
+      <input type="range" id="gl-yr" min="1" max="40" step="1" value="15" oninput="updSlider('gl-yr','gl-yr-val','',false,' yrs');calcGoal()">
+    </div>
+    <div id="gl-result" class="result-box">
+      <div class="result-row">
+        <span class="result-label">Required Monthly SIP</span>
+        <span class="result-val" id="r-gl-sip">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Total You Will Invest</span>
+        <span class="result-val" id="r-gl-invested">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Target Corpus</span>
+        <span class="result-val" id="r-gl-target">—</span>
+      </div>
+    </div>
+    <div id="gl-goals" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;">
+      <button class="goal-chip" onclick="setGoal(1000000,10)">🏠 Home Down Payment<br><small>₹10L in 10 yrs</small></button>
+      <button class="goal-chip" onclick="setGoal(10000000,20)">🏡 Dream Home<br><small>₹1Cr in 20 yrs</small></button>
+      <button class="goal-chip" onclick="setGoal(2000000,15)">🎓 Child Education<br><small>₹20L in 15 yrs</small></button>
+      <button class="goal-chip" onclick="setGoal(50000000,30)">🌴 Retirement<br><small>₹5Cr in 30 yrs</small></button>
+    </div>
+  </div>
+  <style>
+  .goal-chip{background:#eff6ff;border:2px solid #bfdbfe;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e3a5f;line-height:1.4;transition:all .15s;}
+  .goal-chip small{font-size:11px;color:#3b5998;font-weight:400;}
+  .goal-chip:hover{background:#dbeafe;border-color:#2563eb;}
+  </style>
+</div>
+
+<!-- TAB 4: SWP -->
+<div id="tab-swp" class="panel">
+  <div class="card">
+    <h2>SWP Calculator</h2>
+    <p style="font-size:13px;color:#3b5998;margin-bottom:18px;">Systematic Withdrawal Plan — how long will your corpus last with monthly withdrawals?</p>
+    <div class="slider-wrap">
+      <label>Total Corpus <span class="slider-val" id="swp-corpus-val">₹50,00,000</span></label>
+      <input type="range" id="swp-corpus" min="100000" max="100000000" step="100000" value="5000000" oninput="updSlider('swp-corpus','swp-corpus-val','₹',true);calcSWP()">
+    </div>
+    <div class="slider-wrap">
+      <label>Monthly Withdrawal <span class="slider-val" id="swp-wd-val">₹25,000</span></label>
+      <input type="range" id="swp-wd" min="1000" max="500000" step="1000" value="25000" oninput="updSlider('swp-wd','swp-wd-val','₹',true);calcSWP()">
+    </div>
+    <div class="slider-wrap">
+      <label>Expected Annual Return <span class="slider-val" id="swp-rate-val">8%</span></label>
+      <input type="range" id="swp-rate" min="1" max="20" step="0.5" value="8" oninput="updSlider('swp-rate','swp-rate-val','',false,'%');calcSWP()">
+    </div>
+    <div id="swp-result" class="result-box">
+      <div class="result-row">
+        <span class="result-label">Corpus Lasts For</span>
+        <span class="result-val" id="r-swp-duration">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Total Withdrawn</span>
+        <span class="result-val" id="r-swp-total">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Final Balance</span>
+        <span class="result-val" id="r-swp-balance">—</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEO SECTION -->
+<div class="seo">
+  <h2>What is SIP?</h2>
+  <p><strong>SIP (Systematic Investment Plan)</strong> lets you invest a fixed amount in a mutual fund every month — like an EMI, but for wealth creation. You don't need to time the market. Over time, <strong>rupee cost averaging</strong> smooths out market volatility.</p>
+
+  <div class="highlight">💡 ₹5,000/month for 20 years at 12% return = <strong>₹49.96 lakhs</strong> — from just ₹12 lakhs invested.</div>
+
+  <h3>SIP Formula</h3>
+  <p>M = P × [(1+r)ⁿ − 1] ÷ r × (1+r)</p>
+  <ul>
+    <li><strong>P</strong> = Monthly SIP amount</li>
+    <li><strong>r</strong> = Monthly rate = Annual rate ÷ 12 ÷ 100</li>
+    <li><strong>n</strong> = Months = Years × 12</li>
+  </ul>
+
+  <h3>Expected Returns by Fund Type</h3>
+  <ul>
+    <li><strong>Large Cap funds:</strong> 10–11% (stable, lower risk)</li>
+    <li><strong>Flexi/Multi Cap funds:</strong> 11–13% (balanced)</li>
+    <li><strong>Mid Cap funds:</strong> 12–15% (higher growth, higher risk)</li>
+    <li><strong>Debt funds:</strong> 6–8% (low risk, good for short term)</li>
+    <li><strong>Index funds (Nifty 50):</strong> ~11–12% long-term average</li>
+  </ul>
+
+  <h3>Frequently Asked Questions</h3>
+  <details>
+    <summary>How much SIP is needed for ₹1 crore?</summary>
+    <p>At 12% annual return: ₹10,000/month for 20 years → ₹99.9 lakhs. ₹5,500/month for 25 years → ₹1.02 crore. Use the Goal Planner tab above for your exact target.</p>
+  </details>
+  <details>
+    <summary>Is SIP better than FD?</summary>
+    <p>For long term (5+ years), SIP in equity mutual funds typically outperforms FD. FD gives ~6–7% (taxable), while equity SIP has historically returned 10–13% over 10+ year periods. SIP is not guaranteed — equity markets can fall. FD is fully guaranteed.</p>
+  </details>
+  <details>
+    <summary>Can I stop SIP anytime?</summary>
+    <p>Yes. Most mutual funds allow you to pause or stop SIP at any time with no penalty. You can also withdraw (redeem) your accumulated units at any time (subject to exit load if within 1 year for equity funds).</p>
+  </details>
+  <details>
+    <summary>What is Step-Up SIP?</summary>
+    <p>Step-Up SIP means increasing your SIP amount every year (e.g., by 10%). This accelerates wealth creation significantly. If your salary grows, stepping up your SIP by even 5–10% yearly can dramatically increase your final corpus.</p>
+  </details>
+  <details>
+    <summary>Does SIPCalc store my data?</summary>
+    <p>No. All calculations are done in your browser. Nothing is sent to any server.</p>
+  </details>
+
+  <div style="margin-top:20px;text-align:center;font-size:13px;color:#1d4ed8;">
+    More free tools:
+    <a href="https://nxtcraft.github.io/emicalc/" style="color:#2563eb;">EMICalc</a> ·
+    <a href="https://nxtcraft.github.io/taxcalc/" style="color:#2563eb;">TaxCalc</a> ·
+    <a href="https://nxtcraft.github.io/tradecalc/" style="color:#2563eb;">TradeCalc</a> ·
+    <a href="https://nxtcraft.github.io/gstcalc/" style="color:#2563eb;">GSTCalc</a>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  &copy; 2026 SIPCalc · Free SIP Calculator India ·
+  <a href="https://nxtcraft.github.io/">All Tools</a> ·
+  <a href="https://nxtcraft.github.io/emicalc/">EMICalc</a> ·
+  <a href="https://nxtcraft.github.io/taxcalc/">TaxCalc</a> ·
+  <a href="https://nxtcraft.github.io/tradecalc/">TradeCalc</a> ·
+  <a href="https://nxtcraft.github.io/gstcalc/">GSTCalc</a>
+</footer>
+
+<script>
+const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+
+function updSlider(id, valId, prefix, indian, suffix='') {
+  const v = parseFloat(document.getElementById(id).value);
+  const display = indian ? fmt(v) : (prefix + v + suffix);
+  document.getElementById(valId).textContent = display;
+}
+
+function showTab(name, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+function setBar(barId, invId, gainId, invested, total) {
+  const pct = Math.min(95, Math.max(5, (invested / total) * 100));
+  document.getElementById(barId).style.width = pct + '%';
+  document.getElementById(invId).textContent = 'Invested ' + fmt(invested);
+  document.getElementById(gainId).textContent = 'Returns ' + fmt(total - invested);
+}
+
+// SIP
+function calcSIP() {
+  const P = parseFloat(document.getElementById('sip-amt').value);
+  const annual = parseFloat(document.getElementById('sip-rate').value);
+  const years = parseFloat(document.getElementById('sip-yr').value);
+  const r = annual / 12 / 100;
+  const n = years * 12;
+  const M = P * ((Math.pow(1+r, n) - 1) / r) * (1 + r);
+  const invested = P * n;
+  const gain = M - invested;
+  document.getElementById('r-sip-invested').textContent = fmt(invested);
+  document.getElementById('r-sip-gain').textContent = fmt(gain);
+  document.getElementById('r-sip-total').textContent = fmt(M);
+  setBar('sip-bar','sip-bar-inv','sip-bar-gain', invested, M);
+}
+
+// Lump Sum
+function calcLS() {
+  const P = parseFloat(document.getElementById('ls-amt').value);
+  const annual = parseFloat(document.getElementById('ls-rate').value);
+  const years = parseFloat(document.getElementById('ls-yr').value);
+  const M = P * Math.pow(1 + annual/100, years);
+  const gain = M - P;
+  document.getElementById('r-ls-invested').textContent = fmt(P);
+  document.getElementById('r-ls-gain').textContent = fmt(gain);
+  document.getElementById('r-ls-total').textContent = fmt(M);
+  setBar('ls-bar','ls-bar-inv','ls-bar-gain', P, M);
+}
+
+// Goal Planner
+function calcGoal() {
+  const FV = parseFloat(document.getElementById('gl-target').value);
+  const annual = parseFloat(document.getElementById('gl-rate').value);
+  const years = parseFloat(document.getElementById('gl-yr').value);
+  const r = annual / 12 / 100;
+  const n = years * 12;
+  const P = FV * r / ((Math.pow(1+r, n) - 1) * (1 + r));
+  const invested = P * n;
+  document.getElementById('r-gl-sip').textContent = fmt(P) + '/mo';
+  document.getElementById('r-gl-invested').textContent = fmt(invested);
+  document.getElementById('r-gl-target').textContent = fmt(FV);
+}
+
+function setGoal(target, years) {
+  document.getElementById('gl-target').value = target;
+  document.getElementById('gl-yr').value = years;
+  updSlider('gl-target','gl-target-val','₹',true);
+  updSlider('gl-yr','gl-yr-val','',false,' yrs');
+  calcGoal();
+}
+
+// SWP
+function calcSWP() {
+  const corpus = parseFloat(document.getElementById('swp-corpus').value);
+  const wd = parseFloat(document.getElementById('swp-wd').value);
+  const annual = parseFloat(document.getElementById('swp-rate').value);
+  const r = annual / 12 / 100;
+  let balance = corpus;
+  let months = 0;
+  while (balance > 0 && months < 1200) {
+    balance = balance * (1 + r) - wd;
+    months++;
+    if (balance <= 0) { balance = 0; break; }
+  }
+  const yrs = Math.floor(months / 12);
+  const mo = months % 12;
+  const duration = months >= 1200 ? '100+ years (corpus never depletes)' : (yrs > 0 ? yrs + ' yrs ' + (mo > 0 ? mo + ' mo' : '') : mo + ' months');
+  document.getElementById('r-swp-duration').textContent = duration;
+  document.getElementById('r-swp-total').textContent = fmt(Math.min(months, 1200) * wd);
+  document.getElementById('r-swp-balance').textContent = months >= 1200 ? 'Corpus intact' : '₹0';
+}
+
+// Init
+calcSIP(); calcLS(); calcGoal(); calcSWP();
+</script>
+</body>
+</html>
