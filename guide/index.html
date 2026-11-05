@@ -14,7 +14,8 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://nxtcraft.github.io/sipcalc/guide/">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use a SIP Calculator","description":"Step-by-step guide to calculate SIP returns and plan your mutual fund investments in India.","step":[{"@type":"HowToStep","name":"Enter monthly SIP amount","text":"Enter how much you want to invest every month. Even ₹500/month is a valid start."},{"@type":"HowToStep","name":"Set expected annual return","text":"For equity mutual funds, use 10–12% as a conservative estimate for long-term planning."},{"@type":"HowToStep","name":"Enter investment duration","text":"Enter how many years you plan to stay invested. Longer tenure = more compounding power."},{"@type":"HowToStep","name":"Read the result","text":"The calculator shows your total invested amount, wealth gained (returns), and total maturity value."},{"@type":"HowToStep","name":"Try Step-Up SIP","text":"If your income grows yearly, use the Step-Up tab to model increasing SIPs — this doubles your wealth vs flat SIP."}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SIP Calculator Guide 2026 — How to Use, Best Funds & Strategy","description":"Complete guide to SIP investment planning in India — how to use a SIP calculator, best fund categories, Step-Up SIP, LTCG tax, and reaching ₹1 crore.","url":"https://nxtcraft.github.io/sipcalc/guide/","datePublished":"2026-01-01","dateModified":"2026-11-01","publisher":{"@type":"Organization","name":"NxtCraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SIP Calculator Guide 2026 — How to Use, Best Funds & Strategy","description":"Complete guide to SIP investment planning in India — how to use a SIP calculator, best fund categories, Step-Up SIP, LTCG tax, and reaching ₹1 crore.","url":"https://nxtcraft.github.io/sipcalc/guide/","datePublished":"2026-01-01","dateModified":"2026-11-04","publisher":{"@type":"Organization","name":"NxtCraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is SIP?","acceptedAnswer":{"@type":"Answer","text":"SIP (Systematic Investment Plan) is a method of investing a fixed amount in a mutual fund every month automatically. It benefits from rupee cost averaging — you buy more units when markets are low and fewer when high — which reduces your average cost over time. SIPs can be started with as little as ₹100/month."}},{"@type":"Question","name":"Is SIP safe?","acceptedAnswer":{"@type":"Answer","text":"SIP in equity mutual funds carries market risk — your returns are not guaranteed and can be negative in the short term. However, historically, SIPs in diversified equity funds held for 10+ years in India have delivered positive returns in almost every rolling period. Debt fund SIPs are lower risk but offer lower returns. Always invest based on your risk tolerance and time horizon."}},{"@type":"Question","name":"Can I stop my SIP in between?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can pause or stop a SIP anytime without any penalty. The units already purchased remain invested and continue to grow. However, stopping a SIP during a market crash is generally a mistake — that is precisely when rupee cost averaging works in your favor, buying more units at lower prices."}},{"@type":"Question","name":"What is CAGR in SIP?","acceptedAnswer":{"@type":"Answer","text":"CAGR (Compounded Annual Growth Rate) is the annualised return rate of an investment. For SIPs, the equivalent measure is XIRR (Extended Internal Rate of Return), which accounts for the multiple cash flows at different dates. When a fund says it has delivered 15% returns, it means 15% CAGR — your money doubled approximately every 4.8 years at that rate."}},{"@type":"Question","name":"What is Step-Up SIP?","acceptedAnswer":{"@type":"Answer","text":"Step-Up SIP (also called Top-Up SIP) automatically increases your monthly SIP amount by a fixed percentage every year. For example, starting with ₹5,000/month and a 10% annual step-up means you invest ₹5,500/month in year 2, ₹6,050 in year 3, and so on. Over 20 years, this more than doubles your maturity amount compared to a flat SIP of the same starting amount."}}]}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#eff6ff;color:#1e3a5f;line-height:1.7;}
@@ -73,13 +74,16 @@ footer a{color:#60a5fa;text-decoration:none;}
   <h3>Table of Contents</h3>
   <ol>
     <li><a href="#what-is-sip">What is SIP?</a></li>
+    <li><a href="#formula">How SIP Returns are Calculated (Formula)</a></li>
     <li><a href="#how-to-use">How to use the SIP Calculator</a></li>
     <li><a href="#return-rates">What return rate should you assume?</a></li>
     <li><a href="#step-up">Step-Up SIP — the wealth multiplier</a></li>
     <li><a href="#1-crore">How to reach ₹1 Crore with SIP</a></li>
-    <li><a href="#ltcg">LTCG Tax on mutual funds (2024 rules)</a></li>
+    <li><a href="#goal-planning">Goal-Based SIP Planning</a></li>
+    <li><a href="#ltcg">LTCG Tax on mutual funds (Budget 2024)</a></li>
     <li><a href="#fund-selection">How to pick the right fund</a></li>
     <li><a href="#mistakes">Common SIP mistakes to avoid</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
   </ol>
 </div>
 
@@ -96,8 +100,40 @@ footer a{color:#60a5fa;text-decoration:none;}
   <div class="highlight"><strong>Example:</strong> ₹5,000/month SIP for 20 years at 12% returns = ₹49.9 lakh. Total invested: only ₹12 lakh. That's 4× your money — purely from compounding.</div>
 </div>
 
+<div class="card" id="formula">
+  <h2>2. How SIP Returns Are Calculated (Formula)</h2>
+  <p>The SIP maturity value is calculated using the future value of annuity formula:</p>
+  <div style="background:#1e293b;color:#e2e8f0;border-radius:10px;padding:16px 20px;margin:14px 0;font-family:monospace;font-size:14px;line-height:1.8;">
+    <div style="color:#94a3b8;font-size:12px;">SIP Future Value Formula</div>
+    FV = P × ((1 + r)^n − 1) / r × (1 + r)<br><br>
+    <div style="color:#94a3b8;font-size:12px;">Where:</div>
+    P = Monthly SIP amount (₹)<br>
+    r = Monthly return rate = Annual rate ÷ 12 ÷ 100<br>
+    n = Number of months
+  </div>
+  <h3>Worked Example: ₹5,000/month at 12% for 10 Years</h3>
+  <p>Step 1 — Monthly rate: r = 12 ÷ 12 ÷ 100 = 0.01</p>
+  <p>Step 2 — Months: n = 10 × 12 = 120</p>
+  <p>Step 3 — Apply formula:</p>
+  <div style="background:#1e293b;color:#e2e8f0;border-radius:10px;padding:16px 20px;margin:14px 0;font-family:monospace;font-size:14px;line-height:1.8;">
+    FV = 5,000 × ((1.01)^120 − 1) / 0.01 × (1.01)<br>
+       = 5,000 × (3.3004 − 1) / 0.01 × 1.01<br>
+       = 5,000 × 230.04 × 1.01<br>
+       = <strong>₹11,61,695</strong>
+  </div>
+  <div class="example-box">
+    <h4>📊 ₹5,000/month SIP at 12% — 10 Year Result</h4>
+    <div class="example-row"><span class="label">Total Invested</span><span class="value">₹6,00,000</span></div>
+    <div class="example-row"><span class="label">Returns (Gains)</span><span class="value">₹5,61,695</span></div>
+    <div class="example-row"><span class="label">Maturity Value</span><span class="value">₹11,61,695</span></div>
+    <div class="example-row"><span class="label">Wealth Multiple</span><span class="value">1.94× your money</span></div>
+  </div>
+  <p>Notice that the formula includes a final <code>(1 + r)</code> multiplier — this accounts for the fact that the last SIP instalment also earns one month of return before maturity. This is why SIP calculators show slightly different numbers from naive calculations.</p>
+  <div class="highlight"><strong>The power of time:</strong> At the same 12% return, extending the same ₹5,000/month SIP from 10 to 20 years grows maturity from ₹11.6L to ₹49.9L — 4.3× more money for only 2× more investment period. This is compounding at work.</div>
+</div>
+
 <div class="card" id="how-to-use">
-  <h2>2. How to Use the SIP Calculator</h2>
+  <h2>3. How to Use the SIP Calculator</h2>
   <ol>
     <li><span class="step-num">1</span><strong>Monthly SIP amount</strong> — How much you'll invest every month. Be realistic; you should be comfortable with this even in a bad month.</li>
     <li><span class="step-num">2</span><strong>Expected annual return</strong> — The assumed annual growth rate. Use 10–12% for conservative long-term equity estimates (see Section 3 for details).</li>
@@ -212,13 +248,64 @@ footer a{color:#60a5fa;text-decoration:none;}
   </ol>
 </div>
 
+<div class="card" id="goal-planning">
+  <h2>Goal-Based SIP Planning</h2>
+  <p>Instead of asking "how much will my SIP grow to?", goal-based planning asks "how much SIP do I need to reach my goal?" Use the Goal Planner tab in the SIP calculator for this. Here are three common Indian financial goals and the required monthly SIP:</p>
+  <table>
+    <thead><tr><th>Goal</th><th>Target Amount</th><th>Time Horizon</th><th>Assumed Return</th><th>Required Monthly SIP</th></tr></thead>
+    <tbody>
+      <tr><td>Child's higher education</td><td>₹25,00,000</td><td>10 years</td><td>12%</td><td>₹10,787/month</td></tr>
+      <tr><td>Home down payment</td><td>₹20,00,000</td><td>5 years</td><td>10%</td><td>₹25,784/month</td></tr>
+      <tr><td>Retirement corpus</td><td>₹1,00,00,000</td><td>20 years</td><td>12%</td><td>₹10,000/month</td></tr>
+      <tr><td>Dream vacation abroad</td><td>₹5,00,000</td><td>3 years</td><td>8%</td><td>₹12,973/month</td></tr>
+      <tr><td>Emergency fund (liquid)</td><td>₹3,00,000</td><td>1 year</td><td>5%</td><td>₹24,370/month</td></tr>
+    </tbody>
+  </table>
+  <div class="highlight"><strong>Important for home down payment and emergency fund:</strong> Use a liquid fund or short-duration debt fund SIP for goals under 3 years — not equity funds. Equity is volatile in the short term; you don't want your down payment to be 30% lower when markets correct.</div>
+  <h3>SIP vs Lump Sum — When Each Makes Sense</h3>
+  <table>
+    <thead><tr><th>Situation</th><th>Better Approach</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>Regular monthly income (salaried)</td><td>SIP</td><td>Disciplined, automatic, rupee cost averaging</td></tr>
+      <tr><td>Large bonus or windfall</td><td>Lump sum</td><td>All money starts compounding immediately</td></tr>
+      <tr><td>Market at all-time highs</td><td>SIP over 6–12 months</td><td>Spreads entry risk across multiple prices</td></tr>
+      <tr><td>Market has corrected 25%+</td><td>Lump sum or increased SIP</td><td>Buying at discount — don't miss the opportunity</td></tr>
+      <tr><td>Irregular income (freelancer)</td><td>STP from liquid fund</td><td>Park in liquid fund, auto-transfer monthly to equity</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="cta-box">
   <h3>Ready to calculate your SIP?</h3>
   <p>Use India's most complete free SIP calculator — SIP, Step-Up, Goal Planner, SWP, and LTCG Tax in one tool.</p>
   <a class="cta-btn" href="https://nxtcraft.github.io/sipcalc/">Open SIP Calculator →</a>
 </div>
 
-<p style="font-size:13px;color:#6b7280;text-align:center;">Also useful: <a href="https://nxtcraft.github.io/emicalc/" style="color:#2563eb;">EMI Calculator</a> · <a href="https://nxtcraft.github.io/taxcalc/" style="color:#2563eb;">Income Tax Calculator</a> · <a href="https://nxtcraft.github.io/gstcalc/" style="color:#2563eb;">GST Calculator</a> · <a href="https://nxtcraft.github.io/tradecalc/" style="color:#2563eb;">TradeCalc</a></p>
+<div class="card" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details style="border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+    <summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14px;">What is SIP?</summary>
+    <p style="padding:0 16px 14px;font-size:14px;color:#374151;line-height:1.7;">SIP (Systematic Investment Plan) is a method of investing a fixed amount in a mutual fund every month automatically on a date you choose. It benefits from rupee cost averaging — you buy more units when markets fall and fewer when markets rise — which lowers your average purchase cost over time.</p>
+  </details>
+  <details style="border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+    <summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14px;">Is SIP safe?</summary>
+    <p style="padding:0 16px 14px;font-size:14px;color:#374151;line-height:1.7;">SIP in equity mutual funds carries market risk — returns are not guaranteed and can be negative in the short term. However, historically, equity SIPs held for 10+ years in India have delivered positive returns in almost every 10-year rolling period. The NIFTY 50 has delivered approximately 12% CAGR over the last 20 years. Debt fund SIPs are lower risk but offer lower returns (5–7%).</p>
+  </details>
+  <details style="border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+    <summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14px;">Can I stop my SIP in between?</summary>
+    <p style="padding:0 16px 14px;font-size:14px;color:#374151;line-height:1.7;">Yes. You can pause or stop a SIP anytime without penalty. Units already purchased remain invested and continue to grow. However, stopping during a market crash is usually a mistake — that is precisely when rupee cost averaging works best, buying more units at lower prices.</p>
+  </details>
+  <details style="border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+    <summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14px;">What is CAGR and how is it different from XIRR?</summary>
+    <p style="padding:0 16px 14px;font-size:14px;color:#374151;line-height:1.7;">CAGR (Compounded Annual Growth Rate) measures the return of a lump-sum investment. XIRR (Extended Internal Rate of Return) measures return for investments with multiple cash flows at different dates — which is exactly how SIPs work. For SIPs, XIRR is the correct metric. If a fund says 15% CAGR on SIP returns, it actually means 15% XIRR. Use our SIP calculator's return field to find what XIRR assumption matches your goal.</p>
+  </details>
+  <details style="border:1px solid #bfdbfe;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+    <summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14px;">What is Step-Up SIP?</summary>
+    <p style="padding:0 16px 14px;font-size:14px;color:#374151;line-height:1.7;">Step-Up SIP (also called Top-Up SIP) automatically increases your monthly SIP amount by a fixed percentage every year. Starting ₹5,000/month with 10% annual step-up means you invest ₹5,500 in year 2, ₹6,050 in year 3, and so on. Over 20 years, this more than doubles your maturity value compared to a flat ₹5,000/month SIP (₹1.01 crore vs ₹49.9 lakh).</p>
+  </details>
+</div>
+
+<p style="font-size:13px;color:#6b7280;text-align:center;margin-top:16px;">Also useful: <a href="https://nxtcraft.github.io/emicalc/" style="color:#2563eb;">EMI Calculator</a> · <a href="https://nxtcraft.github.io/taxcalc/" style="color:#2563eb;">Income Tax Calculator</a> · <a href="https://nxtcraft.github.io/fdcalc/" style="color:#2563eb;">FD Calculator</a> · <a href="https://nxtcraft.github.io/pfcalc/" style="color:#2563eb;">EPF PPF Calculator</a></p>
 
 </div>
 
