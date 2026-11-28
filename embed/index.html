@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIP Calculator — embeddable widget | NxtCraft</title>
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://nxtcraft.github.io/sipcalc/">
+<script>try{var t=new URLSearchParams(location.search).get('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--fg:#0f172a;--mu:#64748b;--ln:#e2e8f0;--soft:#f8fafc;--ac:#059669;--acs:#d1fae5}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f172a;--fg:#e2e8f0;--mu:#94a3b8;--ln:#334155;--soft:#1e293b}}
+:root[data-theme=dark]{--bg:#0f172a;--fg:#e2e8f0;--mu:#94a3b8;--ln:#334155;--soft:#1e293b}
+html,body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:440px;margin:0 auto;padding:14px;border:1px solid var(--ln);border-radius:12px}
+h1{font-size:15px;font-weight:700;margin-bottom:10px}h1 span{color:var(--ac)}
+label{display:block;font-size:12px;color:var(--mu);margin:8px 0 3px}
+input{width:100%;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;background:var(--soft);color:var(--fg);font-size:15px;font-variant-numeric:tabular-nums}
+input:focus{outline:2px solid var(--ac);border-color:transparent}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.out{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.o{background:var(--soft);border:1px solid var(--ln);border-radius:10px;padding:8px 10px}.o.main{grid-column:1/-1;border-color:var(--ac)}
+.k{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.03em}.v{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}.main .v{font-size:24px;color:var(--ac)}
+.note{font-size:12px;color:var(--mu);margin-top:8px}
+.ft{margin-top:10px;padding-top:8px;border-top:1px solid var(--ln);display:flex;justify-content:space-between;gap:8px;font-size:12px}
+.ft a{color:var(--ac);text-decoration:none;font-weight:600}</style>
+</head><body><!-- nc-embed --><div class="w">
+<h1>SIP <span>Calculator</span></h1>
+<label for="amt">Monthly SIP (₹)</label><input id="amt" inputmode="numeric" value="5000">
+<div class="row"><div><label for="rate">Expected return (% a year)</label><input id="rate" inputmode="decimal" value="12"></div><div><label for="years">Period (years)</label><input id="years" inputmode="decimal" value="15"></div></div>
+<div class="out"><div class="o main"><div class="k">Estimated value</div><div class="v" id="fv">—</div></div>
+<div class="o"><div class="k">You invest</div><div class="v" id="inv">—</div></div><div class="o"><div class="k">Estimated gains</div><div class="v" id="gain">—</div></div></div>
+<p class="note">Assumed return, compounded monthly; investing at the start of each month. Mutual fund returns are not guaranteed.</p>
+<div class="ft"><a href="https://nxtcraft.github.io/sipcalc/" target="_blank" rel="noopener">Full calculator ↗</a><a href="https://nxtcraft.github.io/" target="_blank" rel="noopener">Free tools by NxtCraft</a></div>
+</div>
+<script>
+var q=new URLSearchParams(location.search);function $(i){return document.getElementById(i)}
+function n(i){var v=parseFloat(String($(i).value).replace(/,/g,''));return isFinite(v)?v:0}
+function inr(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
+function sh(x){return x>=1e7?'₹'+(x/1e7).toFixed(2)+' Cr':x>=1e5?'₹'+(x/1e5).toFixed(2)+' L':inr(x)}
+function calc(){var P=n('amt'),R=n('rate'),Y=n('years'),k=Math.round(Y*12),r=R/12/100;
+if(P<=0||k<=0){$('fv').textContent='—';return}var f=r>0?P*((Math.pow(1+r,k)-1)/r)*(1+r):P*k;
+$('fv').textContent=sh(f);$('inv').textContent=sh(P*k);$('gain').textContent=sh(f-P*k);}
+document.querySelectorAll('input').forEach(function(e){var p=q.get(e.id);if(p)e.value=p;e.addEventListener('input',calc)});calc();
+</script></body></html>
